@@ -8,5 +8,3 @@ module.exports = {
 // const config = {
 //     verbose: true,
 //   };
-  /** @type {import('jest').Config} */
-   module.exports = config;
