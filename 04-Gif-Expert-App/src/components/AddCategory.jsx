@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 
-export const AddCategory = ({setCategories}) => {
+export const AddCategory = ({ onNewCategories }) => {
   const [inputValue, setInputValue] = useState("One Punch");
 
-  const onInputChange = ({target}) => {    
+  const onInputChange = ({ target }) => {
     setInputValue(target.value);
   };
 
   const onSubmit = (event) => {
-    event.preventDefault(); 
-    if(inputValue.trim().length <= 1) return;
-   setCategories(categories =>[inputValue,...categories])
-   setInputValue ('');
+    event.preventDefault();
+    if (inputValue.trim().length <= 1) return;
+    //  setCategories(categories =>[inputValue,...categories])
+    onNewCategories(inputValue.trim());
+    setInputValue("");
   };
   return (
     <form onSubmit={onSubmit}>
@@ -20,7 +21,7 @@ export const AddCategory = ({setCategories}) => {
         placeholder="Buscar Gifs..."
         value={inputValue}
         onChange={onInputChange}
-      ></input>
+      />
     </form>
   );
 };
