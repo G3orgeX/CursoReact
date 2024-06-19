@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getGifs } from "../helpers/getGifs";
 import { GifGridItem } from "./GifGridItem";
 import { useFetchGifs } from "../hooks/useFetchGifs";
-
+import PropsTypes from "prop-types"
 export const GifGrid = ({ category }) => {
 
   const {images,isLoading} = useFetchGifs(category);
@@ -12,9 +12,7 @@ export const GifGrid = ({ category }) => {
   return (
     <>
       <h3>{category}</h3>
-      {isLoading &&(
-        <h2>Cargando...</h2>
-      ) }
+      {isLoading &&(<h2>Cargando...</h2>) }
 
       <div className="card-grid">
         {
