@@ -8,6 +8,7 @@ export const AddCategory = ({ onNewCategory }) => {
   };
 
   const onSubmit = (event) => {
+   
     event.preventDefault();
     if (inputValue.trim().length <= 1) return;
     //  setCategories(categories =>[inputValue,...categories])
@@ -15,7 +16,7 @@ export const AddCategory = ({ onNewCategory }) => {
     onNewCategory(inputValue.trim());
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} aria-label="form">
       <input
         type="text"
         placeholder="Buscar Gifs..."
@@ -25,3 +26,7 @@ export const AddCategory = ({ onNewCategory }) => {
     </form>
   );
 };
+import PropTypes from 'prop-types';
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired,
+}
